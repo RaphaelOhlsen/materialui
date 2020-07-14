@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -15,6 +15,9 @@ import { useTheme} from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 import logo from '../../assets/logo.svg';
 
@@ -275,7 +278,51 @@ export default function Header(props) {
           onClose={() => setOpenDrawer(false)}
           onOpen={() => setOpenDrawer(true)}
         >
-          Example Drawer
+          <List disablePadding>
+            
+          <ListItem
+            onClick = {() => setOpenDrawer(false)}  
+            divider button disableTypography 
+            component={Link} to="/"
+          >
+              <ListItemText>Home</ListItemText>
+          </ListItem>
+          <ListItem
+            onClick = {() => setOpenDrawer(false)} 
+            divider button disableTypography 
+            component={Link} to="/services"
+          >
+            <ListItemText>Services</ListItemText>
+          </ListItem>
+          <ListItem
+            onClick = {() => setOpenDrawer(false)}
+            divider button disableTypography 
+            component={Link} to="revolution/"
+          >
+            <ListItemText>The Revolution</ListItemText>
+          </ListItem>
+          <ListItem
+            onClick = {() => setOpenDrawer(false)} 
+            divider button disableTypography 
+            component={Link} to="/about"
+          >
+            <ListItemText>About Us</ListItemText>
+          </ListItem>
+          <ListItem
+            onClick = {() => setOpenDrawer(false)} 
+            divider button disableTypography 
+            component={Link} to="/contact"
+          >
+            <ListItemText>Contact Us</ListItemText>
+          </ListItem>
+          <ListItem
+            onClick = {() => setOpenDrawer(false)} 
+            divider button disableTypography 
+            component={Link} to="/estimate"
+          >
+            <ListItemText>Free Estimate</ListItemText>
+          </ListItem>
+          </List>
         </SwipeableDrawer>
         <IconButton
           className={classes.drawerIconContainer}
