@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import Grid from '@material-ui/core/Grid'
 
 import footerAdornment from '../../assets/Footer Adornment.svg'
 
@@ -20,14 +21,21 @@ const useStyles = makeStyles(theme => ({
       width: "15em"
     }
   },
+  mainContainer :{
+    position: "absolute",
+  },
+  link: {
+    color: "#fff",
+    fontWeight: 700,
+    fontFamily: "Arial",
+    fontSize: "0.75rem"
+  }
 }));
 
 export default function Footer() {
   const classes = useStyles();
   return (
     <footer className={classes.footer}>
-<<<<<<< Updated upstream
-=======
       <Grid container justify="center" className={classes.mainContainer}>
         <Grid item>
           <Grid container direction="column" spacing={2}>
@@ -89,7 +97,6 @@ export default function Footer() {
           </Grid>
         </Grid>
       </Grid>
->>>>>>> Stashed changes
       <img 
         src={footerAdornment} 
         alt="black decorative slash"
