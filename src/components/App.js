@@ -5,7 +5,7 @@ import theme from './ui/Theme';
 
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
-import LandingPage from '../components/landdingPage';
+import LandingPage from '../components/LanddingPage';
 
 function App() {
   const [value, setValue] = useState(0);
