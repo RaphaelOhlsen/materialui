@@ -5,6 +5,7 @@ import theme from './ui/Theme';
 
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';
+import LandingPage from '../components/landdingPage';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -22,7 +23,7 @@ function App() {
         <Switch>
           <Route 
             exact path="/" 
-            component={() => <div style={{height: "600px"}}>Home</div> }>  
+            component={LandingPage}>  
           </Route>
           <Route 
             exact path="/services" 

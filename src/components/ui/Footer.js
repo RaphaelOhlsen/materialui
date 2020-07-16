@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     width: "25em",
     verticalAlign: "bottom",
     [theme.breakpoints.down("md")]: {
-      width: "21em"
+      width: "21em",
     },
     [theme.breakpoints.down('xs')]: {
       width: "15em"
