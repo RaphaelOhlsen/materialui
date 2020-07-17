@@ -8,6 +8,7 @@ import ButtonArrow from '../components/ui/ButtonArrow';
 
 
 import animationData from '../animations/landinganimation/data';
+import custonSoftwareIcon from '../assets/Custom Software Icon.svg';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -34,16 +35,18 @@ const useStyles = makeStyles(theme => ({
     marginTop: "1em"
   },
   learnButtonHero: {
+    ...theme.typography.learnButton,
     height: 45,
     width: 145,
-    fontFamily: "Roboto",
-    fontWeight: 700,
-    textTransform: "none",
-    fontSize: "0.9rem",
-    color: theme.palette.common.blue,
-    borderColor: theme.palette.common.blue,
-    borderWidth: 2,
-    borderRadius: 50
+    fontSize: "0.9rem"
+  },
+  learnButton: {
+    ...theme.typography.learnButton,
+    height: 35,
+    padding: 5,
+    paddingRight: 15,
+    paddingLeft: 15,
+    fontSize: "0.7rem",
   },
   mainContainer: {
     marginTop: "5em",
@@ -60,9 +63,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0
     }
+  },
+  specialText: {
+    fontFamily: "Pacifico",
+    color: theme.palette.common.orange
+  },
+  subtitle: {
+    marginBottom: "1em"
   }
 }))
-
 
 export default function LandingPage() {
   const classes = useStyles();
@@ -76,10 +85,9 @@ export default function LandingPage() {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-
   return (
     <Grid container direction="column" className={classes.mainContainer}>
-      <Grid item>
+      <Grid item> {/*-----Hero Block-----*/}
         <Grid container justify="flex-end" alignItems="center" direction="row">
           <Grid sm item className={classes.heroTextContainer}>
             <Typography variant="h2" align="center">
@@ -120,8 +128,34 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
+      <Grid item>{/*-----Services Block-----*/}
+        <Grid container direction="row">
+          <Grid item>
+            <Typography variant="h4">
+              Custon Software Development
+            </Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Save Energy. Save Time. Save Money. 
+            </Typography>
+            <Typography variant="subtitle1">
+              Complete digital solution, from ivestigation to{"  "} 
+              <span className={classes.specialText}>celebration</span>
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{marginRight: 10}}>Learn More</span>
+              <ButtonArrow 
+                width={10} 
+                height={10} 
+                fill={theme.palette.common.blue} 
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img src={custonSoftwareIcon} alt="custon software icon"/>
+          </Grid>
+        </Grid>
+      </Grid>
     </Grid>
-    
-  );
+  )
 }
 
