@@ -15,6 +15,7 @@ import custonSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websiteIcon from '../assets/websiteIcon.svg';
 import revolutionBackground from '../assets/repeatingBackground.svg';
+import infoBackground from '../assets/infoBackground.svg';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -51,6 +52,18 @@ const useStyles = makeStyles(theme => ({
     height: 35,
     padding: 10,
     paddingLeft: 15,
+    marginTop: "1em",
+    fontSize: "0.7rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em"
+    }
+  },
+  buttonInfo: {
+    ...theme.typography.learnButton,
+    color: "#fff",
+    borderColor: "#fff",
+    height: 35,
+    padding: 5,
     marginTop: "1em",
     fontSize: "0.7rem",
     [theme.breakpoints.down("sm")]: {
@@ -113,7 +126,14 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
       width: "100%"
     }
-
+  }, 
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%"
   }
 }))
 
@@ -349,6 +369,43 @@ export default function LandingPage() {
     )
     
   }
+
+  function infoBlock() {
+    return (
+      <Grid item>{/*-----Information Block-----*/}
+        <Grid 
+        container 
+        style={{height: "80em"}} 
+        alignItems="center" 
+        direction="row"
+        >
+          <Grid item style={{position: "absolute", marginLeft: "5em"}}>
+            <Grid container direction="column">
+              <Typography 
+                variant="h2" 
+                style={{color: "#fff"}}
+              >
+                About Us
+              </Typography>
+              <Typography 
+                variant="subtitle2"
+              >
+                Let's get personal.
+              </Typography>
+              <Grid item>
+                <Button variant="outlined" className={classes.buttonInfo}>
+                  <span style={{marginRight: 10}}>Learn More</span>
+                  <ButtonArrow width={10} height={10} fill="#fff" />
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <div className={classes.infoBackground}/>
+        </Grid>
+    </Grid>
+    );
+  }
+
   return (
     <Grid container direction="column" className={classes.mainContainer}>
       {heroBlock()}
@@ -356,6 +413,7 @@ export default function LandingPage() {
       {mobileBlock()}
       {websiteBlock()}
       {revolutionBlock()}
+      {infoBlock()}
       
     </Grid>
   )
