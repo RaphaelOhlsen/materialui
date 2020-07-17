@@ -3,8 +3,9 @@ import Lottie from 'react-lottie';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import ButtonArrow from '../components/ui/ButtonArrow';
+import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 import animationData from '../animations/landinganimation/data';
@@ -44,9 +45,10 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.learnButton,
     height: 35,
     padding: 5,
-    paddingRight: 15,
-    paddingLeft: 15,
     fontSize: "0.7rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em"
+    }
   },
   mainContainer: {
     marginTop: "5em",
@@ -70,13 +72,25 @@ const useStyles = makeStyles(theme => ({
   },
   subtitle: {
     marginBottom: "1em"
+  },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0
+    }
+  },
+  serviceContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("xs")]: {
+      padding: 25
+    }
   }
 }))
 
 export default function LandingPage() {
   const classes = useStyles();
   const theme = useTheme();
-
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const defaultOptions = {
     loop: true,
     autoplay: true, 
@@ -96,7 +110,6 @@ export default function LandingPage() {
             <Grid 
               container 
               justify="center" 
-              alignItems="center" 
               className={classes.buttonContainer}
             >
               <Grid item>
@@ -120,20 +133,25 @@ export default function LandingPage() {
             </Grid>
           </Grid>
           <Grid sm item className={classes.animation}>
-            <Lottie
-              options={defaultOptions}
-              height={"100%"}
-              width={"100%"}
-            />
+            <Lottie options={defaultOptions} height={"100%"} width={"100%"}/>
           </Grid>
         </Grid>
       </Grid>
       <Grid item>{/*-----Services Block-----*/}
-        <Grid container direction="row">
-          <Grid item>
-            <Typography variant="h4">
-              Custon Software Development
-            </Typography>
+        <Grid 
+          container 
+          direction="row" 
+          className={classes.serviceContainer}
+          justify={ matchesSM ? "center" : undefined }
+        >
+          <Grid 
+            item 
+            style={{
+               marginLeft: matchesSM ? 0 : "5em",
+               textAlign: "center"
+            }}
+          >
+            <Typography variant="h4">Custon Software Development</Typography>
             <Typography variant="subtitle1" className={classes.subtitle}>
               Save Energy. Save Time. Save Money. 
             </Typography>
@@ -151,7 +169,7 @@ export default function LandingPage() {
             </Button>
           </Grid>
           <Grid item>
-            <img src={custonSoftwareIcon} alt="custon software icon"/>
+            <img className={classes.icon} src={custonSoftwareIcon} alt="custon software icon"/>
           </Grid>
         </Grid>
       </Grid>
