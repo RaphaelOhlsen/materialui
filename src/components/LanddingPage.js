@@ -10,7 +10,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import animationData from '../animations/landinganimation/data';
 import custonSoftwareIcon from '../assets/Custom Software Icon.svg';
-import mobileAppsIcon from '../assets/mobileIcon.svg'
+import mobileAppsIcon from '../assets/mobileIcon.svg';
+import websiteIcon from '../assets/websiteIcon.svg';
 
 const useStyles = makeStyles(theme => ({
   animation: {
@@ -100,10 +101,10 @@ export default function LandingPage() {
       preserveAspectRatio: 'xMidYMid slice'
     }
   };
-  return (
-    <Grid container direction="column" className={classes.mainContainer}>
 
-      <Grid item> {/*-----Hero Block-----*/}
+  function heroBlock() {
+    return (
+    <Grid item> {/*-----Hero Block-----*/}
         <Grid container justify="flex-end" alignItems="center" direction="row">
           <Grid sm item className={classes.heroTextContainer}>
             <Typography variant="h2" align="center">
@@ -138,9 +139,13 @@ export default function LandingPage() {
             <Lottie options={defaultOptions} height={"100%"} width={"100%"}/>
           </Grid>
         </Grid>
-      </Grid> {/*-----End Block-----*/}
+      </Grid>
+    )
+  }
 
-      <Grid item>{/*-----Custon Software Block-----*/}
+  function custonSofwateBlock() {
+    return (
+    <Grid item>{/*-----Custon Software Block-----*/}
         <Grid 
           container 
           direction="row" 
@@ -179,8 +184,11 @@ export default function LandingPage() {
             />
           </Grid>
         </Grid>
-      </Grid>{/*-----End Block-----*/}
-      
+      </Grid>
+  )}
+
+  function mobileBlock() {
+    return (
       <Grid item>{/*-----iOS/Androidf Block-----*/}
         <Grid 
           container 
@@ -220,7 +228,62 @@ export default function LandingPage() {
             />
           </Grid>
         </Grid>
-      </Grid>{/*-----End Block-----*/}
+      </Grid>
+    )
+  }
+
+  function websiteBlock() {
+    return (
+      <Grid item>{/*-----Website Block-----*/}
+        <Grid 
+          container 
+          direction="row" 
+          className={classes.serviceContainer}
+          justify={ matchesSM ? "center" : "flex-start" }
+        >
+          <Grid 
+            item 
+            style={{
+              marginLeft: matchesSM ? 0 : "5em",
+              textAlign: "center"
+            }}
+          >
+            <Typography variant="h4">WebsiteDevelopment</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Reach More. Discover More. Sell More.
+            </Typography>
+            <Typography variant="subtitle1">
+              Optimized for Search ENgines, built for speed.
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{marginRight: 10}}>Learn More</span>
+              <ButtonArrow 
+                width={10} 
+                height={10} 
+                fill={theme.palette.common.blue} 
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img 
+              className={classes.icon}
+              src={websiteIcon} 
+              alt="website icon"
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+    )
+  }
+
+  return (
+    <Grid container direction="column" className={classes.mainContainer}>
+      {heroBlock()}
+      {custonSofwateBlock()}
+      {mobileBlock()}
+      {websiteBlock()}
+
+      
     </Grid>
   )
 }
