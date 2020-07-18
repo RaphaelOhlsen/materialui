@@ -9,6 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
+import CallToAction from './ui/CalltoAction';
 
 import animationData from '../animations/landinganimation/data';
 import custonSoftwareIcon from '../assets/Custom Software Icon.svg';
@@ -173,7 +174,10 @@ export default function LandingPage() {
                 </Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
+                <Button 
+                  variant="outlined" 
+                  className={classes.learnButtonHero}
+                >
                   <span style={{marginRight: 10}}>Learn More</span>
                   <ButtonArrow 
                     width={15} 
@@ -216,7 +220,10 @@ export default function LandingPage() {
               Complete digital solution, from ivestigation to{"  "} 
               <span className={classes.specialText}>celebration</span>
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+            >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow 
                 width={10} 
@@ -459,7 +466,9 @@ export default function LandingPage() {
       {websiteBlock()}
       {revolutionBlock()}
       {infoBlock()}
-      
+      <Grid item> {/*-----Call to Action Block-----*/}
+        <CallToAction />
+      </Grid>
     </Grid>
   )
 }
