@@ -5,6 +5,9 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from './ButtonArrow';
 
+import background from '../../assets/background.jpg';
+import mobileBackground from '../../assets/mobileBackground.jpg';
+
 const useStyles = makeStyles(theme => ({
   learnButton: {
     ...theme.typography.learnButton,
@@ -12,11 +15,33 @@ const useStyles = makeStyles(theme => ({
     height: 35,
     padding: 10,
     paddingLeft: 15,
-    marginTop: "1em",
     [theme.breakpoints.down("sm")]: {
-      marginBottom: "2em"
+      // marginBottom: "2em"
     }
   },
+  background: {
+    backgroundImage: `url(${background})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "60em",
+    width: "100%",
+    [theme.breakpoints.down("md")]: {
+      backgroundImage: `url(${mobileBackground})`,
+    }
+  },
+  estimateButton: {
+    ...theme.typography.estimate,
+    borderRadius: 50,
+    height: 80,
+    width: 205,
+    backgroundColor: theme.palette.common.orange,
+    fontSize: "1.5rem",
+    marginRight: "5rem",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light
+    }
+  }
 }));
 
 
@@ -25,14 +50,19 @@ export default function CallToAction() {
   const theme = useTheme();
 
   return (
-    <Grid container>
-      <Grid item>
+    <Grid 
+      container 
+      alignItems="center"
+      justify="space-between"
+      className={classes.background}
+    >
+      <Grid item style={{marginLeft: "5em"}}>
         <Grid container direction="column">
           <Grid item>
             <Typorgraphy variant="h2">
               Simple Software.<br />Revolution Results.
             </Typorgraphy>
-            <Typorgraphy variant="subtitle2">
+            <Typorgraphy variant="subtitle2" style={{fontSize: "1.5rem"}}>
               Take advantage of the 21st Century.
             </Typorgraphy>
             <Grid container item>
@@ -50,6 +80,14 @@ export default function CallToAction() {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item>
+        <Button 
+          variant="contained" 
+          className={classes.estimateButton}
+        >
+          Free Estimate
+        </Button>
       </Grid>
     </Grid>
   )
