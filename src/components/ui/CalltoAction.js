@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import {Link} from 'react-router-dom';
 import Typorgraphy from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles'; 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -86,6 +87,8 @@ export default function CallToAction() {
               <Button 
                 variant="outlined"
                 className={classes.learnButton}
+                component={Link}
+                to="/revolution"
               >
                 <span style={{marginRight: 5}}>Learn More</span>
                 <ButtonArrow 
@@ -102,6 +105,8 @@ export default function CallToAction() {
           <Button 
             variant="contained" 
             className={classes.estimateButton}
+            component={Link}
+            to="/estimate"
           >
             Free Estimate
           </Button>

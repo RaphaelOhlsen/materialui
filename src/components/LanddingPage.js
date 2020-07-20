@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import { makeStyles, useTheme } from '@material-ui/styles';
+import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from '../components/ui/ButtonArrow';
@@ -167,6 +168,8 @@ export default function LandingPage() {
             >
               <Grid item>
                 <Button 
+                  component="Link"
+                  to="/estimate"
                   variant="contained"
                   className={classes.estimateButton}
                 >
@@ -177,6 +180,8 @@ export default function LandingPage() {
                 <Button 
                   variant="outlined" 
                   className={classes.learnButtonHero}
+                  component="Link"
+                  to="/revolution"
                 >
                   <span style={{marginRight: 10}}>Learn More</span>
                   <ButtonArrow 
@@ -223,6 +228,8 @@ export default function LandingPage() {
             <Button 
               variant="outlined" 
               className={classes.learnButton}
+              component="Link"
+              to="/customsoftware"
             >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow 
@@ -266,7 +273,12 @@ export default function LandingPage() {
               Integrate your web expirience or create a standalone
               app{matchesSM ? null : <br />}with either mobile platform.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+              component="Link"
+              to="/mobileapps"
+              >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow 
                 width={10} 
@@ -311,7 +323,12 @@ export default function LandingPage() {
             <Typography variant="subtitle1">
               Optimized for Search ENgines, built for speed.
             </Typography>
-            <Button variant="outlined" className={classes.learnButton}>
+            <Button 
+              variant="outlined" 
+              className={classes.learnButton}
+              component={Link}
+              to="/websites"
+            >
               <span style={{marginRight: 10}}>Learn More</span>
               <ButtonArrow 
                 width={10} 
@@ -359,6 +376,8 @@ export default function LandingPage() {
                   <Button 
                     className={classes.learnButtonHero}
                     variant="outlined" 
+                    component="Link"
+                    to="/revolution"
                   >
                     <span style={{marginRight: 10}}>Learn More</span>
                     <ButtonArrow 
@@ -415,7 +434,12 @@ export default function LandingPage() {
                   Let's get personal.
                 </Typography>
                 <Grid item>
-                  <Button variant="outlined" className={classes.buttonInfo}>
+                  <Button 
+                    variant="outlined" 
+                    className={classes.buttonInfo}
+                    component="Link"
+                    to="/about"
+                    >
                     <span style={{marginRight: 10}}>Learn More</span>
                     <ButtonArrow width={10} height={10} fill="#fff" />
                   </Button>
@@ -443,7 +467,12 @@ export default function LandingPage() {
                   Say hello! <span role="img" aria-label="cat" >👋🏻</span>
                 </Typography>
                 <Grid item>
-                  <Button variant="outlined" className={classes.buttonInfo}>
+                  <Button 
+                    variant="outlined" 
+                    className={classes.buttonInfo}
+                    component="Link"
+                    to="/contact"
+                  >
                     <span style={{marginRight: 10}}>Learn More</span>
                     <ButtonArrow width={10} height={10} fill="#fff" />
                   </Button>
