@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typorgraphy from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles'; 
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import ButtonArrow from './ButtonArrow';
 
@@ -24,10 +25,12 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
     height: "60em",
     width: "100%",
     [theme.breakpoints.down("md")]: {
       backgroundImage: `url(${mobileBackground})`,
+      backgroundAttachment: "inherit"
     }
   },
   estimateButton: {
@@ -38,8 +41,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.common.orange,
     fontSize: "1.5rem",
     marginRight: "5rem",
+    marginLeft: "2rem",
     "&:hover": {
       backgroundColor: theme.palette.secondary.light
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+      marginLeft: 0,
+      marginTop: "1.5rem"
     }
   }
 }));
@@ -48,15 +57,23 @@ const useStyles = makeStyles(theme => ({
 export default function CallToAction() {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm")); 
 
   return (
     <Grid 
       container 
       alignItems="center"
-      justify="space-between"
+      justify={matchesSM ? "center" : "space-between"}
       className={classes.background}
+      direction={matchesSM ? "column" : "row"}
     >
-      <Grid item style={{marginLeft: "5em"}}>
+      <Grid 
+        item 
+        style={{
+          marginLeft: "5em", 
+          textAlign: matchesSM ? "center" : "inherit"
+        }}
+      >
         <Grid container direction="column">
           <Grid item>
             <Typorgraphy variant="h2">
@@ -65,7 +82,7 @@ export default function CallToAction() {
             <Typorgraphy variant="subtitle2" style={{fontSize: "1.5rem"}}>
               Take advantage of the 21st Century.
             </Typorgraphy>
-            <Grid container item>
+            <Grid container item justify={matchesSM ? "center" : "inherit"}>
               <Button 
                 variant="outlined"
                 className={classes.learnButton}
@@ -81,14 +98,14 @@ export default function CallToAction() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
-        <Button 
-          variant="contained" 
-          className={classes.estimateButton}
-        >
-          Free Estimate
-        </Button>
-      </Grid>
+        <Grid item>
+          <Button 
+            variant="contained" 
+            className={classes.estimateButton}
+          >
+            Free Estimate
+          </Button>
+        </Grid>
     </Grid>
   )
 }
