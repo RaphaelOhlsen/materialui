@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function CallToAction() {
+export default function CallToAction(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm")); 
@@ -92,6 +92,7 @@ export default function CallToAction() {
                 className={classes.learnButton}
                 component={Link}
                 to="/revolution"
+                onClick={() => props.setValue(2)}
               >
                 <span style={{marginRight: 10}}>Learn More</span>
                 <ButtonArrow 
@@ -110,6 +111,7 @@ export default function CallToAction() {
           className={classes.estimateButton}
           component={Link}
           to="/estimate"
+          onClick={() => props.setValue(5)}
         >
           Free Estimate
         </Button>
