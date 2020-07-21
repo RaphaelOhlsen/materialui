@@ -139,7 +139,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -153,9 +153,10 @@ export default function LandingPage() {
     }
   };
 
-  function heroBlock() {
-    return (
-    <Grid item> {/*-----Hero Block-----*/}
+  return (
+    <Grid container direction="column" className={classes.mainContainer}>
+      <Grid item> 
+      {/*-----Block Hero-----*/}
         <Grid container justify="flex-end" alignItems="center" direction="row">
           <Grid sm item className={classes.heroTextContainer}>
             <Typography variant="h2" align="center">
@@ -165,13 +166,15 @@ export default function LandingPage() {
               container 
               justify="center" 
               className={classes.buttonContainer}
+              onClick={() => props.setValue(5)}
             >
               <Grid item>
                 <Button 
-                  component="Link"
+                  component={Link}
                   to="/estimate"
                   variant="contained"
                   className={classes.estimateButton}
+                  // onClick={() => props.setValue(5)}
                 >
                   Free Estimate
                 </Button>
@@ -180,7 +183,7 @@ export default function LandingPage() {
                 <Button 
                   variant="outlined" 
                   className={classes.learnButtonHero}
-                  component="Link"
+                  component={Link}
                   to="/revolution"
                 >
                   <span style={{marginRight: 10}}>Learn More</span>
@@ -198,12 +201,8 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
-    )
-  }
-
-  function custonSofwateBlock() {
-    return (
-    <Grid item>{/*-----Custon Software Block-----*/}
+      <Grid item>
+        {/*-----Custon Software Block-----*/}
         <Grid 
           container 
           direction="row" 
@@ -228,7 +227,7 @@ export default function LandingPage() {
             <Button 
               variant="outlined" 
               className={classes.learnButton}
-              component="Link"
+              component={Link}
               to="/customsoftware"
             >
               <span style={{marginRight: 10}}>Learn More</span>
@@ -248,11 +247,8 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
-  )}
-
-  function mobileBlock() {
-    return (
-      <Grid item>{/*-----iOS/Androidf Block-----*/}
+      <Grid item>
+        {/*-----Mobile Block-----*/}
         <Grid 
           container 
           direction="row" 
@@ -276,7 +272,7 @@ export default function LandingPage() {
             <Button 
               variant="outlined" 
               className={classes.learnButton}
-              component="Link"
+              component={Link}
               to="/mobileapps"
               >
               <span style={{marginRight: 10}}>Learn More</span>
@@ -297,12 +293,8 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
-    )
-  }
-
-  function websiteBlock() {
-    return (
-      <Grid item>{/*-----Website Block-----*/}
+      <Grid item>
+        {/* Website Block */}
         <Grid 
           container 
           direction="row" 
@@ -346,12 +338,8 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Grid>
-    )
-  }
-
-  function revolutionBlock() {
-    return (
-      <Grid item>{/*-----Revolution Block-----*/}
+      <Grid item>
+        {/* The Revolution Block */}
         <Grid 
           container 
           style={{height: "100em", marginTop: "12em"}} 
@@ -376,7 +364,7 @@ export default function LandingPage() {
                   <Button 
                     className={classes.learnButtonHero}
                     variant="outlined" 
-                    component="Link"
+                    component={Link}
                     to="/revolution"
                   >
                     <span style={{marginRight: 10}}>Learn More</span>
@@ -393,109 +381,96 @@ export default function LandingPage() {
           <div className={classes.revolutionBackground}/>
         </Grid>
       </Grid>
-    )
-    
-  }
-
-  function infoBlock() {
-    return (
-      <Grid item>{/*-----Information Block-----*/}
+      <Grid item>
+       
         <Grid 
           container 
           style={{height: "80em"}} 
-          alignItems="center" 
-          direction="row"
+          alignItems="center"
+          direction="row" 
         >
           <Grid 
-            item
+            item 
             container 
             style={{
-              position: "absolute",
-              textAlign: matchesXS ? "center" : "inherit"
-            }} 
-            direction={matchesXS ? "column" : "row"}
-            spacing={matchesXS ? 10 : 0}
+              position: "absolute", 
+              textAlign: matchesSM ? "center" : "inherid",
+            }}
+            direction={matchesXS ? "column" : "row" }
           >
             <Grid 
-              item 
-              sm 
-              style={{marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5em"}}
-            >
+              item sm 
+              style={{
+                marginLeft: matchesXS ? 0 : matchesSM ? "2em" : "5rem", 
+                textAlign: matchesXS ? "center" : "left",
+                marginBottom: matchesXS ? "1em" : 0,
+              }}>
               <Grid container direction="column">
-                <Typography 
-                  variant="h2" 
-                  style={{color: "#fff"}}
-                >
+                <Typography variant="h2" style={{color: "#fff"}}>
                   About Us
                 </Typography>
-                <Typography 
-                  variant="subtitle2"
-                >
-                  Let's get personal.
+                <Typography variant="subtitle2">
+                  Let's get personal
                 </Typography>
                 <Grid item>
-                  <Button 
-                    variant="outlined" 
-                    className={classes.buttonInfo}
-                    component="Link"
-                    to="/about"
+                  <Grid item>
+                    <Button 
+                      variant="outlined" 
+                      style={{color:"#fff", borderColor: "#fff"}}
+                      className={classes.learnButton}
+                      component={Link}
+                      to="/about"
                     >
-                    <span style={{marginRight: 10}}>Learn More</span>
-                    <ButtonArrow width={10} height={10} fill="#fff" />
-                  </Button>
+                      <span style={{marginRight: 10}}>Learn More</span>
+                      <ButtonArrow 
+                        width={10} 
+                        height={10} 
+                        fill="#fff"
+                      />
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
             <Grid 
-              item 
-              sm 
+              item sm 
               style={{
-                marginRight: matchesXS ? 0 : matchesSM ? "2em" : "5em",
-                textAlign: matchesXS ? "center" : "right"
+                marginRight: matchesXS ? 0 : matchesSM ? "2em" : "5rem", 
+                textAlign: matchesXS ?  "center": "right"
               }}
             >
               <Grid container direction="column">
-                <Typography 
-                  variant="h2" 
-                  style={{color: "#fff"}} 
-                >
+                <Typography variant="h2" style={{color: "#fff"}}>
                   Contact Us
                 </Typography>
-                <Typography 
-                  variant="subtitle2"
-                >
-                  Say hello! <span role="img" aria-label="cat" >👋🏻</span>
+                <Typography variant="subtitle2">
+                  Say hello!
                 </Typography>
                 <Grid item>
-                  <Button 
-                    variant="outlined" 
-                    className={classes.buttonInfo}
-                    component="Link"
-                    to="/contact"
-                  >
-                    <span style={{marginRight: 10}}>Learn More</span>
-                    <ButtonArrow width={10} height={10} fill="#fff" />
-                  </Button>
+                  <Grid item>
+                    <Button 
+                      variant="outlined" 
+                      style={{color:"#fff", borderColor: "#fff"}}
+                      className={classes.learnButton}
+                      component={Link}
+                      to="/contact"
+                    >
+                      <span style={{marginRight: 10}}>Learn More</span>
+                      <ButtonArrow 
+                        width={10} 
+                        height={10} 
+                        fill="#fff"
+                      />
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-          
-          <div className={classes.infoBackground}/>
+          <div className={classes.infoBackground} />
         </Grid>
       </Grid>
-    );
-  }
-
-  return (
-    <Grid container direction="column" className={classes.mainContainer}>
-      {heroBlock()}
-      {custonSofwateBlock()}
-      {mobileBlock()}
-      {websiteBlock()}
-      {revolutionBlock()}
-      {infoBlock()}
-      <Grid item> {/*-----Call to Action Block-----*/}
+      <Grid item> 
         <CallToAction />
       </Grid>
     </Grid>

@@ -219,11 +219,11 @@ export default function Header(props) {
             }
           }
           break;
-          case '/estimate':
-            props.setValue(5);
-            break;
-          default:
-            break;
+        case '/estimate':
+          props.setValue(5);
+          break;
+        default:
+          break;
       }
     })
   }, [props.value, menuOptions, props.selectedIndex, routes, props]);

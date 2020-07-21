@@ -25,7 +25,7 @@ function App() {
             exact path="/" 
             render={props =>
               <LandingPage 
-              {...props}
+                {...props}
                 setValue={setValue} 
                 setSelectedIndex={setSelectedIndex}
               />
