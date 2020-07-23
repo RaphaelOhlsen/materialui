@@ -33,7 +33,7 @@ export default createMuiTheme({
     h2: {
       fontFamily: "Releway",
       fontWeight: 700,
-      fontSize: "2.5rem",
+      fontSize: "2.4rem",
       color: arcBlue,
       lineHeight: 1.5
     },
@@ -45,10 +45,11 @@ export default createMuiTheme({
     h4: {
       fontFamily: "Raleway",
       color: arcBlue,
-      fontWeight: 700
+      fontWeight: 700,
+      fontSize: "2rem"
     },
     subtitle1: {
-      fontSize: "1.25rem",
+      fontSize: "1rem",
       fontWeight: 300,
       color: arcGray
     },
@@ -66,5 +67,5 @@ export default createMuiTheme({
       fontFamily: "Roboto",
       fontWeight: 700
     }
-  }
+  },
 });

@@ -301,7 +301,6 @@ export default function LandingPage(props) {
           direction="row" 
           className={classes.serviceContainer}
           justify={ matchesSM ? "center" : "flex-start" }
-          style={{padding: matchesXS ? 0 : 25 }}
         >
           <Grid 
             item 
@@ -482,8 +481,6 @@ export default function LandingPage(props) {
       <Grid item> 
         <CallToAction setValue={props.setValue}/>
       </Grid>
-    
-    
     </Grid>
   )
 }
