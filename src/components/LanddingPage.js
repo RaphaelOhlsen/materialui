@@ -13,7 +13,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CallToAction from './ui/CalltoAction';
 
 import animationData from '../animations/landinganimation/data';
-import custonSoftwareIcon from '../assets/Custom Software Icon.svg';
+import customSoftwareIcon from '../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websiteIcon from '../assets/websiteIcon.svg';
 import revolutionBackground from '../assets/repeatingBackground.svg';
@@ -241,7 +241,7 @@ export default function LandingPage(props) {
           <Grid item>
             <img 
               className={classes.icon} 
-              src={custonSoftwareIcon} 
+              src={customSoftwareIcon} 
               alt="custon software icon"
             />
           </Grid>
@@ -303,35 +303,35 @@ export default function LandingPage(props) {
           justify={ matchesSM ? "center" : "flex-start" }
           style={{padding: matchesXS ? 0 : 25 }}
         >
-          <Grid 
-            item 
-            style={{
-              marginLeft: matchesSM ? 0 : "5em",
-              textAlign: "center"
-            }}
+        <Grid 
+          item 
+          style={{
+            marginLeft: matchesSM ? 0 : "5em",
+            textAlign: "center"
+          }}
+        >
+          <Typography variant="h4">WebsiteDevelopment</Typography>
+          <Typography variant="subtitle1" className={classes.subtitle}>
+            Reach More. Discover More. Sell More.
+          </Typography>
+          <Typography variant="subtitle1">
+            Optimized for Search ENgines, built for speed.
+          </Typography>
+          <Button 
+            variant="outlined" 
+            className={classes.learnButton}
+            component={Link}
+            to="/websites"
+            onClick={() => {props.setValue(1); props.setSelectedIndex(3)}}
           >
-            <Typography variant="h4">WebsiteDevelopment</Typography>
-            <Typography variant="subtitle1" className={classes.subtitle}>
-              Reach More. Discover More. Sell More.
-            </Typography>
-            <Typography variant="subtitle1">
-              Optimized for Search ENgines, built for speed.
-            </Typography>
-            <Button 
-              variant="outlined" 
-              className={classes.learnButton}
-              component={Link}
-              to="/websites"
-              onClick={() => {props.setValue(1); props.setSelectedIndex(3)}}
-            >
-              <span style={{marginRight: 10}}>Learn More</span>
-              <ButtonArrow 
-                width={10} 
-                height={10} 
-                fill={theme.palette.common.blue} 
-              />
-            </Button>
-          </Grid>
+            <span style={{marginRight: 10}}>Learn More</span>
+            <ButtonArrow 
+              width={10} 
+              height={10} 
+              fill={theme.palette.common.blue} 
+            />
+          </Button>
+        </Grid>
           <Grid item>
             <img 
               className={classes.icon}

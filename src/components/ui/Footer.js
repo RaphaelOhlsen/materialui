@@ -44,9 +44,11 @@ const useStyles = makeStyles(theme => ({
   icon: {
     height: "4em",
     width: "4em",
+    paddingRight: "1em",
     [theme.breakpoints.down("xs")]: {
-      height: "2.5em",
-      width: "2.5em"
+      height: "2em",
+      width: "2em",
+      paddingRight: ".5em"
     }
   },
   socialContainer: {
