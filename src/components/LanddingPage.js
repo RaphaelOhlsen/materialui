@@ -141,6 +141,7 @@ export default function LandingPage(props) {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  
   const defaultOptions = {
     loop: true,
     autoplay: true, 
