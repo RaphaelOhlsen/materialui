@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import useMediaQuery from '@material-ui/core/useMediaQuery'; 
-import { useTheme} from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -80,11 +80,11 @@ const useStyles = makeStyles(theme => ({
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
-    color: "#fff",
     borderRadius: 0
   },
   menuItem: {
     ...theme.typography.tab,
+    color: "#fff",
     opacity: 0.7,
     "&:hover": {
       opacity: 1
